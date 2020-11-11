@@ -128,6 +128,14 @@ function addContact(newContact){
     }
  }
 
+ function searchContactByCity(city) {
+    return addressBookArr.filter((contact) => contact.city == city);
+}
+
+function searchContactByState(state) {
+    return addressBookArr.filter((contact) => contact.state == state);
+}
+
 let contact = null;
 try{
      contact = new Contact("Aakash", "Gandhi", "Model", "Panipat", "Haryana", "132103", "91 7206080198", "aakash@gmail.com");
@@ -160,3 +168,5 @@ console.log(addressBookArr);
 deleteContact("Kanu", "Bharti");
 console.log(addressBookArr);
 console.log("No of contacts : "+ countContact(addressBookArr));
+
+console.log(searchContactByCity("Panipat"));
