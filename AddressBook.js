@@ -148,6 +148,26 @@ function viewContactsByState(state){
     return contactsStateMap.get(state);
 }
 
+function sortContact(field){
+    switch(field){
+        case "city":
+            addressBookArr.sort((person1, person2) => (person1.city).localeCompare(person2.city));
+            return addressBookArr;
+            break;
+        case "state":
+            addressBookArr.sort((person1, person2) => (person1.state).localeCompare(person2.state));
+            return addressBookArr;
+            break;
+        case "zip":
+            addressBookArr.sort((person1, person2) => (person1.zip).localeCompare(person2.zip));
+            return addressBookArr;
+            break;
+        default:
+            console.log("Please Enter Valid Field");
+    }
+}
+
+
 let contact = null;
 try{
      contact = new Contact("Aakash", "Gandhi", "Model", "Panipat", "Haryana", "132103", "91 7206080198", "aakash@gmail.com");
@@ -157,7 +177,7 @@ try{
 } 
 
 try{
-    contact = new Contact("Nik", "Ladha", "Kishanp", "Gurugram", "Haryana", "132173", "91 7906480298", "nik@gmail.com");
+    contact = new Contact("Nik", "Ladha", "Kishanp", "Gurugram", "Haryana", "102173", "91 7906480298", "nik@gmail.com");
     addContact(contact);
 }catch(e){
    console.error(e);
@@ -186,3 +206,6 @@ console.log(viewContactsByCity("Panipat"));
 
 addressBookArr.sort((person1, person2) => (person1.firstName).localeCompare(person2.firstName));
 console.log(addressBookArr);
+
+console.log(sortContact("state"));
+console.log(sortContact("zip"));
