@@ -120,24 +120,32 @@ function countContact(addressBookArr) {
     return addressBookArr.length;
 }
 
+function addContact(newContact){
+    if(contactExists(newContact.firstName, newContact.lastName)){
+        throw "Already Present";
+    }else{
+        addressBookArr.push(newContact);
+    }
+ }
+
 let contact = null;
 try{
      contact = new Contact("Aakash", "Gandhi", "Model", "Panipat", "Haryana", "132103", "91 7206080198", "aakash@gmail.com");
-     addressBookArr.push(contact);
+     addContact(contact);
 }catch(e){
     console.error(e);
 } 
 
 try{
     contact = new Contact("Nik", "Ladha", "Kishanp", "Gurugram", "Haryana", "132173", "91 7906480298", "nik@gmail.com");
-    addressBookArr.push(contact);
+    addContact(contact);
 }catch(e){
    console.error(e);
 } 
 
 try{
     contact = new Contact("Kanu", "Bharti", "Tilak", "Delhi", "Delhi", "728193", "91 8708155256", "kanu@gmail.com");
-    addressBookArr.push(contact);
+    addContact(contact);
 }catch(e){
    console.error(e);
 }
